@@ -1,6 +1,6 @@
 {
   "name": "Random Image",
-  "short_name": "random_image",
+  "short_name": "Random image",
   "theme_color": "#000000",
   "background_color": "#000000",
   "display": "standalone",
