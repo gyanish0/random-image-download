@@ -9,8 +9,9 @@ import {
 import axios from "axios";
 import moment from "moment";
 import React, { Fragment, useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 const RandomImages = () => {
+  const navigate = useNavigate();
   const endTime = 1659763805;
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -86,7 +87,16 @@ const RandomImages = () => {
             </>
           )}
         </div>
-        <h1>Random Images</h1>
+        <h1>
+          Random Images
+          <Button
+            variant="outlined"
+            onClick={() => navigate("/main")}
+            style={{ marginLeft: "15px" }}
+          >
+            Another Page
+          </Button>
+        </h1>
         <div></div>
         {loading ? (
           <div style={{ marginTop: "200px" }}>
