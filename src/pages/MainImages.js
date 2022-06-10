@@ -18,7 +18,7 @@ const MainImages = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `https://api.unsplash.com/photos?page=${page}&per_page=15&client_id=NLQ_vXs0giX2TZ31EUhhGlhWUa1RQmme3LeU9Og_B5s`
+        `https://api.unsplash.com/photos?page=${page}&per_page=33&client_id=NLQ_vXs0giX2TZ31EUhhGlhWUa1RQmme3LeU9Og_B5s`
       );
       if (response.status === 200) {
         setImages(response.data);
@@ -124,7 +124,12 @@ const MainImages = () => {
               <Pagination
                 onChange={(e, v) => setPage(v)}
                 count={350}
-                color="primary"
+                variant="outlined"
+                color="secondary"
+                page={page}
+                size="medium"
+                showFirstButton
+                showLastButton
               />
             </div>
           </div>
