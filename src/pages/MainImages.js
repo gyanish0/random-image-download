@@ -1,9 +1,16 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import Pagination from "@material-ui/lab/Pagination";
-import { Grid, LinearProgress, Container, Typography } from "@material-ui/core";
-
+import {
+  Grid,
+  LinearProgress,
+  Container,
+  Typography,
+  Button,
+} from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
 const MainImages = () => {
+  const navigate = useNavigate();
   const [images, setImages] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [loading, setLoading] = React.useState(false);
@@ -15,7 +22,6 @@ const MainImages = () => {
       );
       if (response.status === 200) {
         setImages(response.data);
-        console.log(response.data);
         setLoading(false);
       }
     } catch (error) {
@@ -29,6 +35,13 @@ const MainImages = () => {
   return (
     <div>
       <Container>
+        <h1
+          onClick={() => navigate("/")}
+          style={{ marginLeft: "15px", cursor: "pointer" }}
+        >
+          Home
+        </h1>
+        <div></div>
         {loading ? (
           <div style={{ marginTop: "200px" }}>
             <LinearProgress />
@@ -53,7 +66,7 @@ const MainImages = () => {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src={image.urls.full}
+                        src={image.urls.small}
                         alt={image.alt_description}
                         style={{
                           maxWidth: "100%",

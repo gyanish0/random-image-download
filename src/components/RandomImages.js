@@ -47,7 +47,6 @@ const RandomImages = () => {
       const res = await axios.get(
         `https://picsum.photos/v2/list?page=${page}&limit=15`
       );
-      console.log(res.data);
       if (res.status === 200) {
         setImages(res.data);
         setLoading(false);
